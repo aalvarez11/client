@@ -88,10 +88,9 @@ Dev note: NPM reported a high severity vulnerability in Axios. A fix was availab
 
 ### 5. Router
 
-In this project [React Router](https://reactrouter.com/en/main) is used, specifically version 6.4, as major improvements were made.
-In 6.4+, pages are treated as independent entities so there is less need for a global state.
+In this lesson [React Router](https://reactrouter.com/en/main) is used, as of version 6.4 major improvements were madek, so it is recommended to use this version or later by the instructor. In 6.4+, pages are treated as independent entities so there is less need for a global state.
 
-#### Setup Router
+#### A. Setup the Router
 
 To start, add react router by running the following command in the terminal. The instructor used version 6.10.0 but mentions that the latest version is fine as well.
 
@@ -101,7 +100,7 @@ npm i react-router-dom
 
 Once the package is installed, go to `App.jsx` and import `createBrowserRouter` to create the app's initial router. Afterwards, change the return for the App's main method to a `RouterProvider`, passing in our router to the property `router`.
 
-#### Create Pages
+#### B. Create Pages
 
 Now we're going to need a `pages` directory to hold every page used in the project, located under the `src` directory. All of the following pages must be added (the instructor uses the snippet `rafce` to quickly generate boilerplate code to later edit):
 
@@ -119,6 +118,8 @@ Now we're going to need a `pages` directory to hold every page used in the proje
 - Register.jsx
 - Stats.jsx
 
+Sample boilerplate:
+
 ```jsx
 const AddJob = () => {
   return <h1>AddJob</h1>;
@@ -126,41 +127,19 @@ const AddJob = () => {
 export default AddJob;
 ```
 
-#### Index
+#### C. Using the Index for Importing & Exporting
 
-App.jsx
-
-```jsx
-import HomeLayout from "../ pages/HomeLayout";
-```
-
-pages/index.js
-
-```js
-export { default as DashboardLayout } from "./DashboardLayout";
-export { default as Landing } from "./Landing";
-export { default as HomeLayout } from "./HomeLayout";
-export { default as Register } from "./Register";
-export { default as Login } from "./Login";
-export { default as Error } from "./Error";
-export { default as Stats } from "./Stats";
-export { default as AllJobs } from "./AllJobs";
-export { default as AddJob } from "./AddJob";
-export { default as EditJob } from "./EditJob";
-export { default as Profile } from "./Profile";
-export { default as Admin } from "./Admin";
-```
+To make importing pages smoother, we make use of `pages/index.js` to export the component pages then import recommended pages into `App.jsx`. The following is an snippet of what `App.jsx` would look like with new imports:
 
 App.jsx
 
 ```jsx
 import {
   HomeLayout,
-  Landing,
   Register,
   Login,
   DashboardLayout,
-  Error,
+  ...
 } from "./pages";
 
 const router = createBrowserRouter([
