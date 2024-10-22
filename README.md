@@ -86,67 +86,38 @@ Dev note: NPM reported a high severity vulnerability in Axios. A fix was availab
 
 =============================================================
 
-#### Router
+### 5. Router
 
-[React Router](https://reactrouter.com/en/main)
-
-- version 6.4 brought significant changes (loader and action)
-- pages as independent entities
-- less need for global state
-- more pages
+In this project [React Router](https://reactrouter.com/en/main) is used, specifically version 6.4, as major improvements were made.
+In 6.4+, pages are treated as independent entities so there is less need for a global state.
 
 #### Setup Router
 
-- all my examples will include version !!!
+To start, add react router by running the following command in the terminal. The instructor used version 6.10.0 but mentions that the latest version is fine as well.
 
 ```sh
-npm i react-router-dom@6.10.0
+npm i react-router-dom
 ```
 
-App.jsx
-
-```jsx
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <h1>home</h1>,
-  },
-  {
-    path: "/about",
-    element: (
-      <div>
-        <h2>about page</h2>
-      </div>
-    ),
-  },
-]);
-
-const App = () => {
-  return <RouterProvider router={router} />;
-};
-export default App;
-```
+Once the package is installed, go to `App.jsx` and import `createBrowserRouter` to create the app's initial router. Afterwards, change the return for the App's main method to a `RouterProvider`, passing in our router to the property `router`.
 
 #### Create Pages
 
-- create src/pages directory
-- setup index.js and following pages :
+Now we're going to need a `pages` directory to hold every page used in the project, located under the `src` directory. All of the following pages must be added (the instructor uses the snippet `rafce` to quickly generate boilerplate code to later edit):
 
-  AddJob.jsx
-  Admin.jsx
-  AllJobs.jsx
-  DashboardLayout.jsx
-  DeleteJob.jsx
-  EditJob.jsx
-  Error.jsx
-  HomeLayout.jsx
-  Landing.jsx
-  Login.jsx
-  Profile.jsx
-  Register.jsx
-  Stats.jsx
+- AddJob.jsx
+- Admin.jsx
+- AllJobs.jsx
+- DashboardLayout.jsx
+- DeleteJob.jsx
+- EditJob.jsx
+- Error.jsx
+- HomeLayout.jsx
+- Landing.jsx
+- Login.jsx
+- Profile.jsx
+- Register.jsx
+- Stats.jsx
 
 ```jsx
 const AddJob = () => {
