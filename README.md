@@ -162,12 +162,11 @@ const router = createBrowserRouter([
 ]);
 ```
 
-#### Link Component
+#### D. React Router's Link Component
 
-- navigate around project
-- client side routing
+React router has a way of moving around a site's internal pages by using a `<Link>` component. Again, the Link component only works for moving between pages of the project, not for external linking. For external linking, you would still need to use anchor tags: `<a href="...">...</a>`.
 
-Register.jsx
+Here is an example using `Register.jsx`:
 
 ```jsx
 import { Link } from "react-router-dom";
@@ -181,22 +180,6 @@ const Register = () => {
   );
 };
 export default Register;
-```
-
-Login.jsx
-
-```jsx
-import { Link } from "react-router-dom";
-
-const Login = () => {
-  return (
-    <div>
-      <h1>Login</h1>
-      <Link to="/register">Register Page</Link>
-    </div>
-  );
-};
-export default Login;
 ```
 
 #### Nested Routes
