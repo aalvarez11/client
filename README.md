@@ -186,7 +186,9 @@ export default Register;
 
 React router allows for routes to be nested, that is for multiple child routes to have a parent route. For this project, the home page will be the parent route and the register, login, and dashboard will be children routes. Looking at the pages inside the router in `App.jsx`, the home page at path `/` is chosen to be the parent and login, dashboard, and register are to go inside the parent route's `children` property as an object array. Then in `Homelayout.jsx` (which is our home page per `App.jsx`), we can add a navbar which using react router's `<outlet>` component, will render the homepage's children elements as links for navigating.
 
-#### Index (Home) Page
+#### F. Index (Home) Page
+
+To have a nonempty home page, an index is required and an additional child is added to the home route for the project. The Landing page will server as the home page while HomeLayout serves as a sort of home container:
 
 App.jsx
 
