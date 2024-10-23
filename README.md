@@ -255,24 +255,17 @@ To begin, Styled Components needs to be added to our project through npm termina
 npm install styled-components@5.3.10
 ```
 
-As a tip for easily visualizing styled-component style code in your work, the instructor recommends the extenstion `vscode-styled-components` (I downloaded the one with Styled Components as the author) as it will show color syntax that's more legible and aligned with how VS Code displays regular CSS.
+As a tip for easily visualizing styled-component style code in your work, the instructor recommends the extenstion `vscode-styled-components` (I downloaded the one with Styled Components as the author) as it will show color syntax that's more legible and aligned with how VS Code displays regular CSS. The instructor also brings to attention using dev tools, that styled components creates unique class names, which avoids pitfalls in using repetitive class names normally.
 
-```js
-import styled from "styled-components";
-
-const El = styled.el`
-  // styles go here
-`;
-```
-
-- no name collisions, since unique class
-- vscode-styled-components extension
-- colors and bugs
-
-Landing.jsx
+Here is an example of using a styled component in `Landing.jsx`:
 
 ```jsx
 import styled from "styled-components";
+
+const StyledButton = styled.button`
+  background-color: red;
+  color: white;
+`;
 
 const Landing = () => {
   return (
@@ -283,14 +276,12 @@ const Landing = () => {
   );
 };
 
-const StyledButton = styled.button`
-  background-color: red;
-  color: white;
-`;
 export default Landing;
 ```
 
-#### Style Entire React Component
+#### B. Style The Entire React Component
+
+Next for the landing page, it is general practice to use a wrapper to contain the page in a styled component. An example below:
 
 ```js
 const Wrapper = styled.el``;
