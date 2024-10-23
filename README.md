@@ -182,54 +182,9 @@ const Register = () => {
 export default Register;
 ```
 
-#### Nested Routes
+#### E. Nested Routes
 
-- what about Navbar?
-- decide on root (parent route)
-- make path relative
-- for time being only home layout will be visible
-
-App.jsx
-
-```jsx
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomeLayout />,
-    children: [
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "dashboard",
-        element: <DashboardLayout />,
-      },
-    ],
-  },
-]);
-```
-
-HomeLayout.jsx
-
-```jsx
-import { Outlet } from "react-router-dom";
-
-const HomeLayout = () => {
-  return (
-    <>
-      {/* add things like Navbar */}
-      {/* <h1>home layout</h1> */}
-      <Outlet />
-    </>
-  );
-};
-export default HomeLayout;
-```
+React router allows for routes to be nested, that is for multiple child routes to have a parent route. For this project, the home page will be the parent route and the register, login, and dashboard will be children routes. Looking at the pages inside the router in `App.jsx`, the home page at path `/` is chosen to be the parent and login, dashboard, and register are to go inside the parent route's `children` property as an object array. Then in `Homelayout.jsx` (which is our home page per `App.jsx`), we can add a navbar which using react router's `<outlet>` component, will render the homepage's children elements as links for navigating.
 
 #### Index (Home) Page
 
