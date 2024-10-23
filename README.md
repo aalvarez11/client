@@ -206,9 +206,9 @@ App.jsx
 }
 ```
 
-#### Error Page
+#### G. Error Page
 
-- bubbles up
+Errors will eventually happen, to be better prepared a visual error page will be useful using an error element. The instructor says that at this point all we really care about is a 404 response. React router provides another useful property in `errorElement`. For now, just sharing the error with the console is enough, but later on the page will be fleshed out for error handling.
 
 App.jsx
 
@@ -232,7 +232,7 @@ const Error = () => {
   return (
     <div>
       <h1>Error Page !!!</h1>
-      <Link to="/dashboard">back home</Link>
+      <Link to="/">back home</Link>
     </div>
   );
 };
