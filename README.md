@@ -239,19 +239,23 @@ const Error = () => {
 export default Error;
 ```
 
-#### Styled Components
+### 6. The Landing Page
 
-- CSS in JS
-- Styled Components
-- have logic and styles in component
-- no name collisions
-- apply javascript logic
+#### A. Styled Components
+
+The Styled Components library is used from here on out for giving a powerful styling toolset that allows styling for components, implementing js logic for styles, and avoids style collision through its naming conventions.
+
 - [Styled Components Docs](https://styled-components.com/)
 - [Styled Components Course](https://www.udemy.com/course/styled-components-tutorial-and-project-course/?referralCode=9DABB172FCB2625B663F)
+
+To begin, Styled Components needs to be added to our project through npm terminal command:
+(Dev note: I will be using version 5.3.10 as in the course instructions)
 
 ```sh
 npm install styled-components@5.3.10
 ```
+
+As a tip for easily visualizing styled-component style code in your work, the instructor recommends the extenstion `vscode-styled-components` (I downloaded the one with Styled Components as the author) as it will show color syntax that's more legible and aligned with how VS Code displays regular CSS.
 
 ```js
 import styled from "styled-components";
