@@ -306,41 +306,9 @@ Since the Logo will be used in multiple places, it would be a good idea to give 
 
 The logo for this project was created using Figma, a common industry tool for web design. The instructor also brings up [Cool Images](https://undraw.co/) as a favorite, as the site has many professional illustrations that are customizeable to your site's color scheme, with download options for svg or png.
 
-#### Error Page
+### 7. The Error Page
 
-Error.jsx
-
-```jsx
-import { Link, useRouteError } from 'react-router-dom';
-import img from '../assets/images/not-found.svg';
-import Wrapper from '../assets/wrappers/ErrorPage';
-
-const Error = () => {
-  const error = useRouteError();
-  console.log(error);
-  if (error.status === 404) {
-    return (
-      <Wrapper>
-        <div>
-          <img src={img} alt='not found' />
-          <h3>Ohh! page not found</h3>
-          <p>We can't seem to find the page you're looking for</p>
-          <Link to='/dashboard'>back home</Link>
-        </div>
-      </Wrapper>
-    );
-  }
-  return (
-    <Wrapper>
-      <div>
-        <h3>something went wrong</h3>
-      </div>
-    </Wrapper>
-  );
-};
-
-export default Error;
-```
+There is only one anticipated error for this project, and that is when a user attempts to reach a page that doesn't exist such as `jobi.fy/hello`. The response status code for this error would be 404 and as such, we display a 404 message when a page isn't found, otherwise giving a generic 'unknown error' message to the user.
 
 #### Error Page CSS (optional)
 
