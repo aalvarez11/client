@@ -300,29 +300,11 @@ const Component = () => {
 The instructor has a quick jump to a more-complete project where he has created a `assets/wrappers` directory full of wrapper components that automatically contain all the corresponding styling for the pages used in the project. Here he mentions that the styling rundowns will be in optional videos and we can choose to skip them.
 The landing page will have some filler text and the instructor tells us about a resource for generating filler text to pad out a website known as [Hipster Ipsum](https://hipsum.co/)
 
-#### Logo Component
+#### D. A Logo Component
 
-- create src/components/Logo.jsx
-- import logo and setup component
-- in components setup index.js import/export (just like pages)
-- replace in Landing
+Since the Logo will be used in multiple places, it would be a good idea to give it its own component and just import it whenever it is needed. For this, we set up a new `components` folder under `src` and add the new component. As with pages, there will be a `index.js` file that will handle exporting all components in the `components` directory.
 
-  Logo.jsx
-
-```jsx
-import logo from '../assets/images/logo.svg';
-
-const Logo = () => {
-  return <img src={logo} alt='jobify' className='logo' />;
-};
-
-export default Logo;
-```
-
-#### Logo and Images
-
-- logo built in Figma
-- [Cool Images](https://undraw.co/)
+The logo for this project was created using Figma, a common industry tool for web design. The instructor also brings up [Cool Images](https://undraw.co/) as a favorite, as the site has many professional illustrations that are customizeable to your site's color scheme, with download options for svg or png.
 
 #### Error Page
 
