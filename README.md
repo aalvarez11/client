@@ -314,69 +314,9 @@ There is only one anticipated error for this project, and that is when a user at
 
 The registration page will introduce the `form` react component, to take in user input. In the first input element for name, we are told about the `required` property which tells the browser to prevent form submission until the field is no longer empty or has a selection (in the case of radio buttons or checkboxes). If the field is empty, a validation message will be output to the user, prompting them for an input. Another recommendation the instructor uses is the `defaultValue` property, as when we reach testing, we will have at least one new user form filled out by default.
 
-#### FormRow Component
+#### A. FormRow Component
 
-- create components/FormRow.jsx (export/import)
-
-FormRow.jsx
-
-```jsx
-const FormRow = ({ type, name, labelText, defaultValue = '' }) => {
-  return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
-        {labelText || name}
-      </label>
-      <input
-        type={type}
-        id={name}
-        name={name}
-        className='form-input'
-        defaultValue={defaultValue}
-        required
-      />
-    </div>
-  );
-};
-
-export default FormRow;
-```
-
-Register.jsx
-
-```jsx
-import { Logo, FormRow } from '../components';
-import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
-import { Link } from 'react-router-dom';
-
-const Register = () => {
-  return (
-    <Wrapper>
-      <form className='form'>
-        <Logo />
-        <h4>Register</h4>
-        <FormRow type='text' name='name' />
-        <FormRow type='text' name='lastName' labelText='last name' />
-        <FormRow type='text' name='location' />
-        <FormRow type='email' name='email' />
-
-        <FormRow type='password' name='password' />
-
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-        <p>
-          Already a member?
-          <Link to='/login' className='member-btn'>
-            Login
-          </Link>
-        </p>
-      </form>
-    </Wrapper>
-  );
-};
-export default Register;
-```
+Since we know there will be multiple inputs, not just one single input field, we can create a component to import into the form basing the type of input on props.
 
 #### Login Page
 
