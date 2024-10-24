@@ -9,7 +9,7 @@ const Landing = () => {
       <nav>
         <img src={logo} alt='jobify' className='logo' />
       </nav>
-      <div className='container-page'>
+      <div className='container page'>
         <div className='info'>
           <h1>
             job <span>tracking</span> app
@@ -26,10 +26,10 @@ const Landing = () => {
             Register
           </Link>
           <Link to='/login' className='btn'>
-            Login / Demo user
+            Login / Demo User
           </Link>
         </div>
-        <img src={main} alt='job hunt' className='img main-img'></img>
+        <img src={main} alt='job hunt' className='img main-img' />
       </div>
     </Wrapper>
   );
