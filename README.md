@@ -310,96 +310,9 @@ The logo for this project was created using Figma, a common industry tool for we
 
 There is only one anticipated error for this project, and that is when a user attempts to reach a page that doesn't exist such as `jobi.fy/hello`. The response status code for this error would be 404 and as such, we display a 404 message when a page isn't found, otherwise giving a generic 'unknown error' message to the user.
 
-#### Error Page CSS (optional)
+### 8. The Register Page
 
-assets/wrappers/Error.js
-
-```js
-import styled from 'styled-components';
-
-const Wrapper = styled.main`
-  min-height: 100vh;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {
-    width: 90vw;
-    max-width: 600px;
-    display: block;
-    margin-bottom: 2rem;
-    margin-top: -3rem;
-  }
-  h3 {
-    margin-bottom: 0.5rem;
-  }
-  p {
-    line-height: 1.5;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-secondary-color);
-  }
-  a {
-    color: var(--primary-500);
-    text-transform: capitalize;
-  }
-`;
-
-export default Wrapper;
-```
-
-#### Register Page
-
-Register.jsx
-
-```jsx
-import { Logo } from '../components';
-import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
-import { Link } from 'react-router-dom';
-
-const Register = () => {
-  return (
-    <Wrapper>
-      <form className='form'>
-        <Logo />
-        <h4>Register</h4>
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
-          <input
-            type='text'
-            id='name'
-            name='name'
-            className='form-input'
-            defaultValue='john'
-            required
-          />
-        </div>
-
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-        <p>
-          Already a member?
-          <Link to='/login' className='member-btn'>
-            Login
-          </Link>
-        </p>
-      </form>
-    </Wrapper>
-  );
-};
-export default Register;
-```
-
-- required attribute
-
-  In HTML, the "required" attribute is used to indicate that a form input field must be filled out before the form can be submitted. It is typically applied to input elements such as text fields, checkboxes, and radio buttons. When the "required" attribute is added to an input element, the browser will prevent form submission if the field is left empty, providing a validation message to prompt the user to enter the required information.
-
-- default value
-
-In React, the defaultValue prop is used to set the initial or default value of an input component. It is similar to the value attribute in HTML, but with a slightly different behavior.
+The registration page will introduce the `form` react component, to take in user input. In the first input element for name, we are told about the `required` property which tells the browser to prevent form submission until the field is no longer empty or has a selection (in the case of radio buttons or checkboxes). If the field is empty, a validation message will be output to the user, prompting them for an input. Another recommendation the instructor uses is the `defaultValue` property, as when we reach testing, we will have at least one new user form filled out by default.
 
 #### FormRow Component
 
