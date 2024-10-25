@@ -322,7 +322,7 @@ Since we know there will be multiple inputs, not just one single input field, we
 
 With the Registration page completed, it will be easy to create a sort of mirror with the Login page as a lot of components are shared between them. In the demonstration, the instructor also showed that adding a component that isn't imported yet will show us the non-404 error message page. This gave me an opportunity to check the styling and I found that I was missing a div to give the page styling consistency in displaying items in a vertical manner.
 
-#### Dashboard Pages
+### 10. Dashboard Pages
 
 The dashboard is where the majority of the logic for the frontend is held. To start, now the dashboard route inside `App.jsx` will have children of its own, as shown in the snippet below:
 
@@ -358,37 +358,9 @@ App.jsx
       },
 ```
 
-#### Navbar, BigSidebar and SmallSidebar
+#### A. Navbar, BigSidebar and SmallSidebar
 
 Three new components are introduced that will be important for the dashboard structure: the navbar, a big sidebar for larger screens and a small sidebar for smaller screens and mobile devices.
-
-DashboardLayout.jsx
-
-```jsx
-import { Outlet } from 'react-router-dom';
-
-import Wrapper from '../assets/wrappers/Dashboard';
-import { Navbar, BigSidebar, SmallSidebar } from '../components';
-
-const Dashboard = () => {
-  return (
-    <Wrapper>
-      <main className='dashboard'>
-        <SmallSidebar />
-        <BigSidebar />
-        <div>
-          <Navbar />
-          <div className='dashboard-page'>
-            <Outlet />
-          </div>
-        </div>
-      </main>
-    </Wrapper>
-  );
-};
-
-export default Dashboard;
-```
 
 #### Dashboard Layout - CSS (optional)
 
