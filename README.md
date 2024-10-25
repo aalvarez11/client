@@ -324,6 +324,8 @@ With the Registration page completed, it will be easy to create a sort of mirror
 
 #### Dashboard Pages
 
+The dashboard is where the majority of the logic for the frontend is held. To start, now the dashboard route inside `App.jsx` will have children of its own, as shown in the snippet below:
+
 App.jsx
 
 ```jsx
@@ -335,7 +337,10 @@ App.jsx
             index: true,
             element: <AddJob />,
           },
-          { path: 'stats', element: <Stats /> },
+          {
+            path: 'stats',
+            element: <Stats />,
+          },
           {
             path: 'all-jobs',
             element: <AllJobs />,
@@ -353,27 +358,9 @@ App.jsx
       },
 ```
 
-Dashboard.jsx
-
-```jsx
-import { Outlet } from 'react-router-dom';
-
-const DashboardLayout = () => {
-  return (
-    <div>
-      <Outlet />
-    </div>
-  );
-};
-export default DashboardLayout;
-```
-
 #### Navbar, BigSidebar and SmallSidebar
 
-- in components create :
-  Navbar.jsx
-  BigSidebar.jsx
-  SmallSidebar.jsx
+Three new components are introduced that will be important for the dashboard structure: the navbar, a big sidebar for larger screens and a small sidebar for smaller screens and mobile devices.
 
 DashboardLayout.jsx
 
