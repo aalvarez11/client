@@ -318,51 +318,9 @@ The registration page will introduce the `form` react component, to take in user
 
 Since we know there will be multiple inputs, not just one single input field, we can create a component to import into the form basing the type of input on props.
 
-#### Login Page
+### 9. The Login Page
 
 With the Registration page completed, it will be easy to create a sort of mirror with the Login page as a lot of components are shared between them. In the demonstration, the instructor also showed that adding a component that isn't imported yet will show us the non-404 error message page. This gave me an opportunity to check the styling and I found that I was missing a div to give the page styling consistency in displaying items in a vertical manner.
-
-#### Register and Login CSS (optional)
-
-assets/wrappers/RegisterAndLoginPage.js
-
-```js
-import styled from 'styled-components';
-
-const Wrapper = styled.section`
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  .logo {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 1.38rem;
-  }
-  .form {
-    max-width: 400px;
-    border-top: 5px solid var(--primary-500);
-  }
-
-  h4 {
-    text-align: center;
-    margin-bottom: 1.38rem;
-  }
-  p {
-    margin-top: 1rem;
-    text-align: center;
-    line-height: 1.5;
-  }
-  .btn {
-    margin-top: 1rem;
-  }
-  .member-btn {
-    color: var(--primary-500);
-    letter-spacing: var(--letter-spacing);
-    margin-left: 0.25rem;
-  }
-`;
-export default Wrapper;
-```
 
 #### Dashboard Pages
 
