@@ -10,6 +10,24 @@ This project follows the 2024 edition course for IBM Skillsbuild MERN Stack. Thi
 
 [VITE](https://vitejs.dev/guide/) - The app is built using Vite (pronounced 'veet')
 
+Coding Addict - [Default Starter Video](https://youtu.be/UDdyGNlQK5w)
+
+[Generate Favicons](https://favicon.io/)
+
+[React Router](https://reactrouter.com/en/main)
+
+[Styled Components Docs](https://styled-components.com/)
+
+[Styled Components Course](https://www.udemy.com/course/styled-components-tutorial-and-project-course/?referralCode=9DABB172FCB2625B663F)
+
+[Hipster Ipsum](https://hipsum.co/)
+
+[Cool Images](https://undraw.co/)
+
+[React Context](https://react.dev/learn/passing-data-deeply-with-context)
+
+[React Icons](https://react-icons.github.io/react-icons/)
+
 ## Part 1 - The Client
 
 ### 1. Create React App
@@ -69,9 +87,7 @@ With that done, next we move the favicon file `favicon.ico` from `assets` into t
 </head>
 ```
 
-You can also generate your own favicons for this or other projects at the website suggested by the instructor:
-
-- resource [Generate Favicons](https://favicon.io/)
+You can also generate your own favicons for this or other projects at the website suggested by the instructor: [Generate Favicons](https://favicon.io/)
 
 ### 4. Install Packages (Optional)
 
@@ -362,147 +378,19 @@ App.jsx
 
 Three new components are introduced that will be important for the dashboard structure: the navbar, a big sidebar for larger screens and a small sidebar for smaller screens and mobile devices.
 
-#### Dashboard Layout - CSS (optional)
+#### B. Dashboard Context
 
-assets/wrappers/DashboardLayout.jsx
+Now we are introduced to React's hooks, using states for sidebar display and dark theme. More importantly, we also begin to use Context. Context allows a parent component to pass down props to its children more easily than the usual way of passing props between components. read: [React Context](https://react.dev/learn/passing-data-deeply-with-context).
 
-```js
-import styled from 'styled-components';
+#### C. React Icons
 
-const Wrapper = styled.section`
-  .dashboard {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .dashboard-page {
-    width: 90vw;
-    margin: 0 auto;
-    padding: 2rem 0;
-  }
-  @media (min-width: 992px) {
-    .dashboard {
-      grid-template-columns: auto 1fr;
-    }
-    .dashboard-page {
-      width: 90%;
-    }
-  }
-`;
-export default Wrapper;
-```
-
-#### Dashboard Context
-
-```jsx
-import { Outlet } from 'react-router-dom';
-
-import Wrapper from '../assets/wrappers/Dashboard';
-import { Navbar, BigSidebar, SmallSidebar } from '../components';
-
-import { useState, createContext, useContext } from 'react';
-const DashboardContext = createContext();
-const Dashboard = () => {
-  // temp
-  const user = { name: 'john' };
-
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  const toggleDarkTheme = () => {
-    console.log('toggle dark theme');
-  };
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
-
-  const logoutUser = async () => {
-    console.log('logout user');
-  };
-  return (
-    <DashboardContext.Provider
-      value={{
-        user,
-        showSidebar,
-        isDarkTheme,
-        toggleDarkTheme,
-        toggleSidebar,
-        logoutUser,
-      }}
-    >
-      <Wrapper>
-        <main className='dashboard'>
-          <SmallSidebar />
-          <BigSidebar />
-          <div>
-            <Navbar />
-            <div className='dashboard-page'>
-              <Outlet />
-            </div>
-          </div>
-        </main>
-      </Wrapper>
-    </DashboardContext.Provider>
-  );
-};
-
-export const useDashboardContext = () => useContext(DashboardContext);
-
-export default Dashboard;
-```
-
-#### React Icons
-
-[React Icons](https://react-icons.github.io/react-icons/)
+Once more it's time for a library to install via npm. This time we will be using [React Icons](https://react-icons.github.io/react-icons/) for our navbar:
 
 ```sh
 npm install react-icons@4.8.0
 ```
 
-Navbar.jsx
-
-```jsx
-
-import {FaHome} from 'react-icons/fa'
-const Navbar = () => {
-  return (
-    <div>
-      <h2>navbar</h2>
-      <FaHome>
-    </div>
-  )
-}
-
-```
-
-#### Navbar - Initial Setup
-
-```jsx
-import Wrapper from '../assets/wrappers/Navbar';
-import { FaAlignLeft } from 'react-icons/fa';
-import Logo from './Logo';
-
-import { useDashboardContext } from '../pages/DashboardLayout';
-const Navbar = () => {
-  const { toggleSidebar } = useDashboardContext();
-  return (
-    <Wrapper>
-      <div className='nav-center'>
-        <button type='button' className='toggle-btn' onClick={toggleSidebar}>
-          <FaAlignLeft />
-        </button>
-        <div>
-          <Logo />
-          <h4 className='logo-text'>dashboard</h4>
-        </div>
-        <div className='btn-container'>toggle/logout</div>
-      </div>
-    </Wrapper>
-  );
-};
-
-export default Navbar;
-```
+dev note: I installed the most recent version of react icons.
 
 #### Navbar CSS (optional)
 
