@@ -392,90 +392,15 @@ npm install react-icons@4.8.0
 
 dev note: I installed the most recent version of react icons.
 
-#### Links
+#### D. Links
 
-- create src/utils/links.jsx
-
-```jsx
-import React from 'react';
-
-import { IoBarChartSharp } from 'react-icons/io5';
-import { MdQueryStats } from 'react-icons/md';
-import { FaWpforms } from 'react-icons/fa';
-import { ImProfile } from 'react-icons/im';
-import { MdAdminPanelSettings } from 'react-icons/md';
-
-const links = [
-  { text: 'add job', path: '.', icon: <FaWpforms /> },
-  { text: 'all jobs', path: 'all-jobs', icon: <MdQueryStats /> },
-  { text: 'stats', path: 'stats', icon: <IoBarChartSharp /> },
-  { text: 'profile', path: 'profile', icon: <ImProfile /> },
-  { text: 'admin', path: 'admin', icon: <MdAdminPanelSettings /> },
-];
-
-export default links;
-```
+To handle the links for our react icons, we create a new utilities directory with a file `links.jsx`.
 
 - in a second, we will discuss why '.' in "add job"
 
-#### SmallSidebar
+#### E. SmallSidebar
 
-SmallSidebar
-
-```jsx
-import Wrapper from '../assets/wrappers/SmallSidebar';
-import { FaTimes } from 'react-icons/fa';
-
-import Logo from './Logo';
-import { NavLink } from 'react-router-dom';
-import links from '../utils/links';
-import { useDashboardContext } from '../pages/DashboardLayout';
-
-const SmallSidebar = () => {
-  const { showSidebar, toggleSidebar } = useDashboardContext();
-  return (
-    <Wrapper>
-      <div
-        className={
-          showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
-        }
-      >
-        <div className='content'>
-          <button type='button' className='close-btn' onClick={toggleSidebar}>
-            <FaTimes />
-          </button>
-          <header>
-            <Logo />
-          </header>
-          <div className='nav-links'>
-            {links.map((link) => {
-              const { text, path, icon } = link;
-
-              return (
-                <NavLink
-                  to={path}
-                  key={text}
-                  className='nav-link'
-                  onClick={toggleSidebar}
-                  // will discuss in a second
-                  end
-                >
-                  <span className='icon'>{icon}</span>
-                  {text}
-                </NavLink>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </Wrapper>
-  );
-};
-
-export default SmallSidebar;
-```
-
-- cover '.' path ,active class and 'end' prop
+The Small sidebar code is written and the dashboard context is utilized for toggling the bar, showing or not showing the sidebar content depending on its state. There is also use of a map to display every link as its own navlink button. When writing the code for the small sidebar, the instructor showcases why "add job" in `links.jsx` uses path '.': it is because '.' means to use the parent's path, i.e. the dashboard route. '/dashboard' could also be used but for simplicity's sake, '.' is much shorter and cleaner.
 
 #### Small Sidebar CSS (optional)
 
