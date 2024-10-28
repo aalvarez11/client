@@ -412,90 +412,9 @@ The big sidebar is created just as the small sidebar even importing the new NavL
 
 For the next step, we create a component to create a dropdown button for logging out the user. Of course, at the moment there is no actual logout functionality but the component now exists and is styled.
 
-#### LogoutContainer CSS (optional)
+#### I. ThemeToggle
 
-assets/wrappers/LogoutContainer.js
-
-```js
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  position: relative;
-
-  .logout-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0 0.5rem;
-  }
-  .img {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-  }
-  .dropdown {
-    position: absolute;
-    top: 45px;
-    left: 0;
-    width: 100%;
-    box-shadow: var(--shadow-2);
-    text-align: center;
-    visibility: hidden;
-    border-radius: var(--border-radius);
-    background: var(--primary-500);
-  }
-  .show-dropdown {
-    visibility: visible;
-  }
-  .dropdown-btn {
-    border-radius: var(--border-radius);
-    padding: 0.5rem;
-    background: transparent;
-    border-color: transparent;
-    color: var(--white);
-    letter-spacing: var(--letter-spacing);
-    text-transform: capitalize;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-export default Wrapper;
-```
-
-#### ThemeToggle
-
-components/ThemeToggle.jsx
-
-```jsx
-import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
-import Wrapper from '../assets/wrappers/ThemeToggle';
-import { useDashboardContext } from '../pages/DashboardLayout';
-
-const ThemeToggle = () => {
-  const { isDarkTheme, toggleDarkTheme } = useDashboardContext();
-  return (
-    <Wrapper onClick={toggleDarkTheme}>
-      {isDarkTheme ? (
-        <BsFillSunFill className='toggle-icon' />
-      ) : (
-        <BsFillMoonFill className='toggle-icon' />
-      )}
-    </Wrapper>
-  );
-};
-
-export default ThemeToggle;
-```
-
-Navbar.jsx
-
-```jsx
-<div className='btn-container'>
-  <ThemeToggle />
-</div>
-```
+For a fun, modern tool most websites use, we will make a component for a toggle button to switch the website between light mode and dark mode.
 
 #### ThemeToggle CSS (optional)
 
