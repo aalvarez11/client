@@ -416,33 +416,9 @@ For the next step, we create a component to create a dropdown button for logging
 
 For a fun, modern tool most websites use, we will make a component for a toggle button to switch the website between light mode and dark mode.
 
-#### ThemeToggle CSS (optional)
+#### J. Dark Theme - Logic
 
-assets/wrappers/ThemeToggle.js
-
-```js
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  background: transparent;
-  border-color: transparent;
-  width: 3.5rem;
-  height: 2rem;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-
-  .toggle-icon {
-    font-size: 1.15rem;
-    color: var(--text-color);
-  }
-`;
-export default Wrapper;
-```
-
-#### Dark Theme - Logic
-
-DashboardLayout.jsx
+The logic for the dark theme toggling as shown in `DashboardLayout.jsx`:
 
 ```jsx
 const toggleDarkTheme = () => {
@@ -453,7 +429,9 @@ const toggleDarkTheme = () => {
 };
 ```
 
-#### Access Theme
+#### K. Accessing Dark Theme Globally
+
+For the dark theme to apply to pages outside those tied to the dashboard (i.e. register, login, home, etc.) there must be a check at the highest level, in `App.jsx`. Here are snippets for making the dark theme state global by saving it in local storage on the user's machine (however there is a small bug regarding this code and instead of passing a constant, instead the checkDefaultTheme function is exported from App.jsx to DashboardLayout.jsx):
 
 App.jsx
 
@@ -481,37 +459,7 @@ const Dashboard = ({ isDarkThemeEnabled }) => {
 };
 ```
 
-#### Dark Theme CSS
-
-index.css
-
-```css
-:root {
-  /* DARK MODE */
-
-  --dark-mode-bg-color: #333;
-  --dark-mode-text-color: #f0f0f0;
-  --dark-mode-bg-secondary-color: #3f3f3f;
-  --dark-mode-text-secondary-color: var(--grey-300);
-
-  --background-color: var(--grey-50);
-  --text-color: var(--grey-900);
-  --background-secondary-color: var(--white);
-  --text-secondary-color: var(--grey-500);
-}
-
-.dark-theme {
-  --text-color: var(--dark-mode-text-color);
-  --background-color: var(--dark-mode-bg-color);
-  --text-secondary-color: var(--dark-mode-text-secondary-color);
-  --background-secondary-color: var(--dark-mode-bg-secondary-color);
-}
-
-body {
-  background: var(--background-color);
-  color: var(--text-color);
-}
-```
+## Part 2 - The Server
 
 #### Folder Setup
 
