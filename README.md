@@ -431,33 +431,7 @@ const toggleDarkTheme = () => {
 
 #### K. Accessing Dark Theme Globally
 
-For the dark theme to apply to pages outside those tied to the dashboard (i.e. register, login, home, etc.) there must be a check at the highest level, in `App.jsx`. Here are snippets for making the dark theme state global by saving it in local storage on the user's machine (however there is a small bug regarding this code and instead of passing a constant, instead the checkDefaultTheme function is exported from App.jsx to DashboardLayout.jsx):
-
-App.jsx
-
-```jsx
-const checkDefaultTheme = () => {
-  const isDarkTheme =
-    localStorage.getItem('darkTheme') === 'true'
-  document.body.classList.toggle('dark-theme', isDarkTheme);
-  return isDarkTheme;
-};
-
-const isDarkThemeEnabled = checkDefaultTheme();
-
-{
-path: 'dashboard',
-element: <DashboardLayout isDarkThemeEnabled={isDarkThemeEnabled} />,
-}
-```
-
-DashboardLayout.jsx
-
-```jsx
-const Dashboard = ({ isDarkThemeEnabled }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(isDarkThemeEnabled);
-};
-```
+For the dark theme to apply to pages outside those tied to the dashboard (i.e. register, login, home, etc.) there must be a check at the highest level, in `App.jsx`. The dark theme state is made global by saving it in local storage on the user's machine. There is a small bug regarding this code found by the instructor and instead of passing a constant, instead the checkDefaultTheme function is exported from `App.jsx` to `DashboardLayout.jsx` and in the Dashboard file, the function is passed as the initial state for `isDarkTheme`.
 
 ## Part 2 - The Server
 
